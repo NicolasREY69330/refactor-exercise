@@ -1,0 +1,6 @@
+@refactor_exercise_HostAddress = http://localhost:5108
+
+GET {{refactor_exercise_HostAddress}}/applyDiscount?productId=12345&couponCode=10OFF
+Accept: application/json
+
+###
