@@ -49,7 +49,6 @@ public class OrderHandler
 
         Console.WriteLine("Order processed with discount");
         
-        // Saving back to DB - should be part of a repository
         var filter = Builders<Order>.Filter.Eq("_id", order.Id);
         var update = Builders<Order>.Update.Set("TotalPrice", order.TotalPrice);
         orders.UpdateOne(filter, update);
