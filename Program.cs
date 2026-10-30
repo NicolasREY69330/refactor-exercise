@@ -3,10 +3,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+PostgresOrderRepository.ConnectionString = builder.Configuration.GetConnectionString("Orders")
+    ?? PostgresOrderRepository.ConnectionString;
+ServiceLocator.Register("orders", new PostgresOrderRepository());
+
 var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseHttpsRedirection();
 app.MapPost("/applyDiscount/{orderId}/{couponCode}", async (HttpContext context, string orderId, string couponCode) =>
 {
     var orderHandler = new OrderHandler();

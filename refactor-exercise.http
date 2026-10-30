@@ -1,6 +1,17 @@
 @refactor_exercise_HostAddress = http://localhost:5108
 
-GET {{refactor_exercise_HostAddress}}/applyDiscount?productId=12345&couponCode=10OFF
+### Standard member
+POST {{refactor_exercise_HostAddress}}/applyDiscount/order-1001/SAVE10
 Accept: application/json
 
-###
+### Premium member
+POST {{refactor_exercise_HostAddress}}/applyDiscount/order-1002/SAVE10
+Accept: application/json
+
+### Expired coupon
+POST {{refactor_exercise_HostAddress}}/applyDiscount/order-1001/EXPIRED
+Accept: application/json
+
+### Unknown order
+POST {{refactor_exercise_HostAddress}}/applyDiscount/missing/SAVE10
+Accept: application/json
