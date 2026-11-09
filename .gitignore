@@ -3,3 +3,4 @@
 **/TestResults/
 .vs/
 .DS_Store
+/interviewer-only/

@@ -17,7 +17,7 @@ unexpected behavior before deciding what to preserve or fix.
 
 ## Run locally
 
-Prerequisites: .NET 8 SDK and Docker with the Compose plugin, or an existing PostgreSQL
+Prerequisites: .NET 10 SDK and Docker with the Compose plugin, or an existing PostgreSQL
 instance.
 
 ```sh
@@ -77,3 +77,7 @@ and add tests that protect the behavior you change.
 - Improve a small end-to-end slice, using SOLID and clean-code principles where helpful.
 - Use tests to make your changes safe, rather than aiming for a particular test count.
 - Discuss what you would do next with more time.
+
+## Interview questionnaires
+
+The bilingual fictional NovaMarket interview pack is available in [`interviews/`](interviews/README.md).

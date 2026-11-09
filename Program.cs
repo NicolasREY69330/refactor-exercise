@@ -30,7 +30,6 @@ app.MapPost("/applyDiscount/{orderId}/{couponCode}", async (HttpContext context,
         return Results.Problem("An error occurred while applying the discount.");
     }
 })
-.WithName("ApplyDiscount")
-.WithOpenApi();
+.WithName("ApplyDiscount");
    
 app.Run();
