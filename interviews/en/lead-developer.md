@@ -4,21 +4,21 @@
 
 ## The fictional system
 
-NovaMarket is an online store. PostgreSQL is the source of truth; the outbox is written in the same business transaction. Redis accelerates reads, Elasticsearch serves search. The RAG path is separate from checkout.
+NovaMarket is an online store. PostgreSQL is the authoritative store for orders. When an order changes, the same database transaction also records a message to publish (the “outbox”). A relay sends it to Kafka; workers then update the Redis cache and Elasticsearch search index. Separately, a support assistant searches documentation passages to help draft a sourced answer (RAG).
 
 ```mermaid
 flowchart LR
   U[Web / App] --> G[API Gateway] --> API[.NET 10 APIs]
-  API -->|Data + outbox, same transaction| PG[(PostgreSQL)]
-  PG --> O[Outbox relay] --> K[(Kafka)] --> W[Projection workers]
-  W --> R[(Redis cache)]
-  W --> ES[(Elasticsearch)]
+  API -->|Order + message to publish| PG[(PostgreSQL: orders)]
+  PG --> O[Event relay] --> K[(Kafka: event queue)] --> W[Workers: update views]
+  W --> R[(Redis: cache)]
+  W --> ES[(Elasticsearch: search index)]
   G --> S[Search API]
   S --> R
   S --> ES
-  D[Documents] --> I[Ingestion + embeddings] --> V[(Vector store / pgvector)]
-  H[Support] --> Q[RAG API] --> V
-  Q --> L[External LLM]
+  D[Documentation] --> I[Indexing + embeddings] --> V[(Vector index)]
+  H[Support assistant] --> Q[RAG search] --> V
+  Q --> L[Language model]
   L --> Q --> H
 ```
 
