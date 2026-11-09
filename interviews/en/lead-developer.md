@@ -39,7 +39,7 @@ flowchart LR
 
 | # | Scenario | Main question | Follow-ups |
 |---|---|---|---|
-| 7 | Multi-team RAG | How would you operate ingestion, embeddings, vector storage, retrieval and the LLM with separate freshness, latency, quality and cost budgets? | How are permissions and deletions propagated? Which evaluation sets and thresholds control relevance and citations? |
-| 8 | Harness with side effects | An agent is interrupted for approval during a tool call with an unknown outcome; the service restarts and permissions may have changed. What execution and governance architecture do you propose? | Who authorizes, confirms, resumes and audits? How do you test restart before/after the action without executing it twice? |
+| 7 | RAG | Support needs sourced answers from procedures that change every week. What is RAG for here, and when would you choose it over ordinary search or fine-tuning? | Which production risk would you prioritize: freshness, access rights, retrieval quality or cost? |
+| 8 | Agent harness | An assistant must read an order status and, after human approval, request a refund through a tool. What is an agent harness for in this flow, and which part of execution should it own? | Which recovery pitfall would you handle first if the tool call times out with an unknown outcome? |
 
 All context needed for the interview is included in this sheet.

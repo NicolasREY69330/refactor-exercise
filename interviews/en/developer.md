@@ -39,7 +39,7 @@ flowchart LR
 
 | # | Scenario | Main question | Follow-ups |
 |---|---|---|---|
-| 7 | Embeddings / RAG | A document changes or is deleted; retrieval slows and two users have different permissions. How would you trace ingestion through to answer citations? | Which metrics separate embedding, retrieval and generation? Which tests cover deletion, permissions and citation quality? |
-| 8 | Agent harness | A tool call times out but may already have executed; the run awaits human approval and resumes after restart. What should be recorded and tested? | How would you avoid unintended repetition? Where should permission and approval be checked again? |
+| 7 | RAG | Support needs cited answers from product procedures updated every week. What is RAG for in this case, and what would its minimal usage flow be? | Which pitfall would you check first: stale documents, access rights or irrelevant retrieval? |
+| 8 | Agent harness | Support needs to read an order status through a read-only MCP tool. What is an agent harness for here, and how would you use it to govern the call? | Which pitfall would you prioritize: broad permissions, untrusted tool output or retry after a timeout? |
 
 All context needed for the interview is included in this sheet.

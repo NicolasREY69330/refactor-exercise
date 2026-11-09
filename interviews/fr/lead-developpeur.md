@@ -39,7 +39,7 @@ flowchart LR
 
 | # | Scénario | Question principale | Relances |
 |---|---|---|---|
-| 7 | RAG multi-équipes | Comment exploiter l’ingestion, les embeddings, le vector store, le retrieval et le LLM avec des budgets séparés de fraîcheur, latence, qualité et coût ? | Comment propager droits et suppressions ? Quels jeux d’évaluation et seuils contrôlent la pertinence et les citations ? |
-| 8 | Harness avec effets de bord | Un agent est interrompu pour approbation pendant un appel d’outil au résultat incertain ; le service redémarre et les droits peuvent avoir changé. Quelle architecture d’exécution et de gouvernance proposez-vous ? | Qui autorise, confirme, reprend et audite ? Comment tester un redémarrage avant/après l’action sans exécuter deux fois une opération ? |
+| 7 | RAG | Le support doit répondre avec des sources à partir de procédures qui changent chaque semaine. À quoi le RAG sert-il ici, et quand le choisirais-tu plutôt qu’une recherche classique ou du fine-tuning ? | Quel risque prioriserais-tu en production : fraîcheur, droits d’accès, qualité du retrieval ou coût ? |
+| 8 | Harness d’agent | Un assistant doit lire le statut d’une commande et, après validation humaine, demander un remboursement via un outil. À quoi sert un harness dans ce flux, et quelle partie de l’exécution lui confierais-tu ? | Quel piège de reprise traiterais-tu en priorité si l’appel d’outil expire avec un résultat incertain ? |
 
 Tout le contexte nécessaire à l’entretien est fourni dans cette fiche.

@@ -39,7 +39,7 @@ flowchart LR
 
 | # | Scénario | Question principale | Relances |
 |---|---|---|---|
-| 7 | Embeddings / RAG | Un document change ou est supprimé ; le retrieval devient lent et deux utilisateurs ont des droits différents. Comment suivre l’ingestion jusqu’aux citations de la réponse ? | Quelles métriques séparent embedding, retrieval et génération ? Quels tests couvrent suppression, permissions et qualité des citations ? |
-| 8 | Harness d’agent | Un appel d’outil expire, mais l’action a peut-être déjà eu lieu ; le run attend une validation humaine puis reprend après redémarrage. Que faut-il tracer et tester ? | Comment éviter une répétition non voulue ? Où vérifier à nouveau permission et approbation ? |
+| 7 | RAG | Le support doit répondre à partir de procédures produit modifiées chaque semaine et citer ses sources. À quoi sert le RAG dans ce cas, et quel serait son flux d’utilisation minimal ? | Quel piège vérifierais-tu en premier : document obsolète, droits d’accès ou résultat hors sujet ? |
+| 8 | Harness d’agent | Le support doit consulter le statut d’une commande via un outil MCP en lecture seule. À quoi sert un harness d’agent dans ce scénario, et comment l’utiliserais-tu pour encadrer l’appel ? | Quel piège prioriserais-tu : permissions trop larges, sortie d’outil non fiable ou retry après timeout ? |
 
 Tout le contexte nécessaire à l’entretien est fourni dans cette fiche.
